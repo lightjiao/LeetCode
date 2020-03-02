@@ -1,4 +1,4 @@
-#include "4-findMedianSortedArrays.cpp"
+#include "findMedianSortedArrays_v2.cpp"
 #include <vector>
 #include <iostream>
 
@@ -13,16 +13,15 @@ void testCase(vector<int> nums1, vector<int> nums2, double expect)
     else
     {
         cout << "false: "
-            << "expect: " << expect << ", "
-            << "result: " << result << endl;
+             << "expect: " << expect << ", "
+             << "result: " << result << endl;
     }
 }
 
-
 int main()
 {
-    testCase(vector<int>{1, 2}, vector<int>{2 }, 2.0);
-    testCase(vector<int>{1, 3}, vector<int>{2 }, 2.0);
-    testCase(vector<int>{1, 2}, vector<int>{3, 4 }, 2.5);
+    testCase(vector<int>{1, 2}, vector<int>{2}, 2.0);
+    testCase(vector<int>{1, 3}, vector<int>{2}, 2.0);
+    testCase(vector<int>{1, 2}, vector<int>{3, 4}, 2.5);
     return 0;
 }

@@ -23,19 +23,21 @@ nums2 = [3, 4]
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
-#include<vector>
-#include<algorithm>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+    double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
+    {
 
         int nums1LeftPos = 0, nums2LeftPos = 0;
         int nums1RightPos = nums1.size() - 1, nums2RightPos = nums2.size() - 1;
 
-        int leftNum = 0;// min(nums1[nums1LeftPos], nums2[nums2LeftPos]);
-        int rightNum = 0;// max(nums1[nums1RightPos], nums2[nums2RightPos]);
+        int leftNum = 0;
+        int rightNum = 0;
 
         int nums1LeftNumber = 0, nums2LeftNumber = 0;
         int nums1RightNumber = 0, nums2RightNumber = 0;
