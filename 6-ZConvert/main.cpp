@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-#include "ZConvert.cpp"
+#include "ZConvert_v2.cpp"
 using namespace std;
 
 void testCase(string s, int numRows, string expect)
