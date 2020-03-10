@@ -26,19 +26,22 @@ using namespace std;
 class Solution
 {
 public:
-    // 暴力枚举, 但超出时间限制
+    // 双指针法
     int maxArea(vector<int> &height)
     {
+        int i = 0, j = height.size() - 1;
         int result = 0;
-        for (int i = 0; i < height.size(); i++)
+        while (i < j)
         {
-            for (int j = i + 1; j < height.size(); j++)
+            if (height[i] < height[j])
             {
-                if (j == i)
-                {
-                    continue;
-                }
-                result = max(result, abs(i - j) * min(height[i], height[j]));
+                result = max(result, (j - i) * height[i]);
+                i++;
+            }
+            else
+            {
+                result = max(result, (j - i) * height[j]);
+                j--;
             }
         }
 
