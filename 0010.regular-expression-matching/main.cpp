@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-#include "Solution_v3_dp.cpp"
+#include "Solution_v4_dp2.cpp"
 
 using namespace std;
 
@@ -35,5 +35,7 @@ int main()
     testCase("ab", ".*c", false);
 
     testCase("aaa", "a*a", true);
+
+    testCase("adaskdhaskdhqsjkdjhqwoe", ".*", true);
     return 0;
 }

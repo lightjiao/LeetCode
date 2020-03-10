@@ -40,7 +40,7 @@ public:
      */
     bool isMatch(string text, string pattern)
     {
-        vector<vector<int>> dp(text.size() + 1, vector<int>(pattern.size() + 1));
+        vector<vector<bool>> dp(text.size() + 1, vector<bool>(pattern.size() + 1, false));
         dp[text.size()][pattern.size()] = true;
 
         for (int i = text.size(); i >= 0; i--)
@@ -52,7 +52,7 @@ public:
 
                 if (j + 1 < pattern.size() && pattern[j + 1] == '*')
                 {
-                    // * 逻辑运算符 && 在 || 之上 https://zh.cppreference.com/w/cpp/language/operator_precedence
+                    // 逻辑运算符 && 在 || 之上 https://zh.cppreference.com/w/cpp/language/operator_precedence
                     // dp[i][j] = dp[i][j + 2] || firstMatch && dp[i + 1][j];
                     dp[i][j] = (firstMatch && dp[i + 1][j]) || dp[i][j + 2];
                 }
