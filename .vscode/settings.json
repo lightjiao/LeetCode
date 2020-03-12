@@ -4,6 +4,8 @@
         "string": "cpp",
         "xstring": "cpp",
         "vector": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "algorithm": "cpp",
+        "numeric": "cpp"
     }
 }
