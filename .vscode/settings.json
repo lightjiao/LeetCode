@@ -6,6 +6,8 @@
         "vector": "cpp",
         "limits": "cpp",
         "algorithm": "cpp",
-        "numeric": "cpp"
+        "numeric": "cpp",
+        "map": "cpp",
+        "type_traits": "cpp"
     }
 }
