@@ -8,6 +8,8 @@
         "algorithm": "cpp",
         "numeric": "cpp",
         "map": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "list": "cpp",
+        "xutility": "cpp"
     }
 }
