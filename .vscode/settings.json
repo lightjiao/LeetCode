@@ -22,6 +22,26 @@
         "xhash": "cpp",
         "xlocale": "cpp",
         "xlocbuf": "cpp",
-        "xloctime": "cpp"
+        "xloctime": "cpp",
+        "concepts": "cpp",
+        "exception": "cpp",
+        "functional": "cpp",
+        "ios": "cpp",
+        "istream": "cpp",
+        "memory": "cpp",
+        "mutex": "cpp",
+        "optional": "cpp",
+        "ostream": "cpp",
+        "set": "cpp",
+        "sstream": "cpp",
+        "stack": "cpp",
+        "streambuf": "cpp",
+        "thread": "cpp",
+        "tuple": "cpp",
+        "unordered_map": "cpp",
+        "utility": "cpp",
+        "xiosbase": "cpp",
+        "xmemory": "cpp",
+        "xtree": "cpp"
     }
 }
