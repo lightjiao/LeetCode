@@ -57,11 +57,12 @@ private:
 
         // 获取random排序结果以及pivot的pos
         int pos = randomizedPartition(nums, l, r);
-        if (pos + 1 == k) {
+        int num = pos - l + 1;
+        if (num == k) {
             return;
         }
-        else if (pos + 1 < k) {
-            return randomizedSelected(nums, pos + 1, r, k);
+        else if (num < k) {
+            return randomizedSelected(nums, pos + 1, r, k - num);
         }
         else {
             return randomizedSelected(nums, l, pos - 1, k);
@@ -71,7 +72,7 @@ private:
     int randomizedPartition(vector<int>& nums, int l, int r)
     {
         // 生成随机下标，并将下标交换到数组的最后位置，再进行快排
-        int randomIdx = (rand() % (r - l)) + 1;
+        int randomIdx = (rand() % (r - l + 1)) + l;
         swap(nums[r], nums[randomIdx]);
         return partition(nums, l, r);
     }
@@ -79,14 +80,17 @@ private:
     int partition(vector<int>& nums, int l, int r)
     {
         int pivot = nums[r];
-        for (int i = l; i <= r; i++) {
-            if (nums[i] > pivot) {
-                swap(nums[i], nums[r]);
-                r--;
+        int i     = l - 1;
+
+        for (int j = l; j < r; j++) {
+            if (nums[j] <= pivot) {
+                i++;
+                swap(nums[i], nums[j]);
             }
         }
+        swap(nums[i + 1], nums[r]);
 
-        return r;
+        return i + 1;
     }
 };
 
@@ -98,11 +102,11 @@ TEST_CASE("test")
 
     arr = {3, 2, 1};
     REQUIRE_THAT(s.getLeastNumbers(arr, 2),
-                Catch::Matchers::UnorderedEquals(vector<int>({1, 2})));
+                 Catch::Matchers::UnorderedEquals(vector<int>({1, 2})));
 
     arr = {0, 1, 2, 1};
     REQUIRE_THAT(s.getLeastNumbers(arr, 1),
-                Catch::Matchers::UnorderedEquals(vector<int>({0})));
+                 Catch::Matchers::UnorderedEquals(vector<int>({0})));
 
     arr = {0, 0, 1, 3, 4, 5, 0, 7, 6, 7};
     REQUIRE_THAT(s.getLeastNumbers(arr, 9),
