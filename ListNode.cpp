@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 /**
  * Definition for singly-linked list.
  */
@@ -14,7 +16,9 @@ struct ListNode
     ListNode(int x) : val(x), next(NULL) {}
 };
 
-ListNode* buildList(std::vector<int> list)
+// bool ListEqual(ListNode* l1, ListNode* l2);
+
+ListNode* buildList(vector<int> list)
 {
     ListNode* head = NULL;
 
@@ -35,9 +39,9 @@ ListNode* buildList(std::vector<int> list)
     return head;
 }
 
-std::vector<int> parseList(ListNode* head)
+vector<int> parseList(ListNode* head)
 {
-    std::vector<int> result;
+    vector<int> result;
     while (head != NULL) {
         result.push_back(head->val);
         head = head->next;

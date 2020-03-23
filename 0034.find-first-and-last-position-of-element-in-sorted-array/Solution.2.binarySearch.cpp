@@ -19,7 +19,7 @@ target。找出给定目标值在数组中的开始位置和结束位置。
 
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do
                            // this in one cpp file
-#include "../ListNode.h"
+#include "../ListNode.cpp"
 #include "../catch.hpp"
 
 #include "limits.h"
