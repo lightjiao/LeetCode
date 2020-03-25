@@ -29,7 +29,7 @@ candidates 中的数字可以无限制重复被选取。
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do
                            // this in one cpp file
 #include "../ListNode.cpp"
-#include "../Utility.cpp"
+#include "../VV.cpp"
 #include "../catch.hpp"
 
 #include "limits.h"
@@ -97,16 +97,16 @@ TEST_CASE("test")
     nums   = {2, 3, 6, 7};
     result = s.combinationSum(nums, 7);
     expect = {{7}, {2, 2, 3}};
-    REQUIRE(vectorOfVectorEqual(result, expect));
+    REQUIRE(VV::equal(result, expect));
 
     nums   = {2, 3, 5};
     result = s.combinationSum(nums, 8);
     expect = {{2, 2, 2, 2}, {2, 3, 3}, {3, 5}};
-    REQUIRE(vectorOfVectorEqual(result, expect));
+    REQUIRE(VV::equal(result, expect));
 
     nums   = {1, 2};
     result = s.combinationSum(nums, 4);
-    print2DVector(result);
+    VV::print(result);
     expect = {{1, 1, 1, 1}, {1, 1, 2}, {2, 2}};
-    REQUIRE(vectorOfVectorEqual(result, expect));
+    REQUIRE(VV::equal(result, expect));
 }

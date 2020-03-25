@@ -30,7 +30,7 @@ candidates 中的每个数字在每个组合中只能使用一次。
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do
                            // this in one cpp file
 #include "../ListNode.cpp"
-#include "../Utility.cpp"
+#include "../VV.cpp"
 #include "../catch.hpp"
 
 #include "limits.h"
@@ -106,12 +106,12 @@ TEST_CASE("test")
 
     nums   = {10, 1, 2, 7, 6, 1, 5};
     result = s.combinationSum2(nums, 8);
-    print2DVector(result);
+    VV::print(result);
     expect = {{1, 7}, {1, 2, 5}, {2, 6}, {1, 1, 6}};
-    REQUIRE(vectorOfVectorEqual(result, expect));
+    REQUIRE(VV::equal(result, expect));
 
     nums   = {2, 5, 2, 1, 2};
     result = s.combinationSum2(nums, 5);
     expect = {{1, 2, 2}, {5}};
-    REQUIRE(vectorOfVectorEqual(result, expect));
+    REQUIRE(VV::equal(result, expect));
 }
