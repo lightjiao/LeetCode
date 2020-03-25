@@ -42,6 +42,7 @@
         "utility": "cpp",
         "xiosbase": "cpp",
         "xmemory": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "xlocmon": "cpp"
     }
 }
