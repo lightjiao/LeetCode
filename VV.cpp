@@ -5,6 +5,7 @@
                            // this in one cpp file
 #include "catch.hpp"
 #include <algorithm>
+#include <iomanip>
 #include <iostream>
 #include <vector>
 
@@ -13,11 +14,11 @@ using namespace std;
 class VV
 {
 public:
-    static void print(vector<vector<int>>& a)
+    template <typename T> static void print(vector<vector<T>>& a)
     {
         for (auto&& n : a) {
             for (auto&& m : n) {
-                printf("%5d", m);
+                cout << setw(6) << m;
             }
             cout << endl;
         }
@@ -26,7 +27,8 @@ public:
     /**
      * 对二级vector排序后再做比较
      */
-    static bool equal(vector<vector<int>>& a, vector<vector<int>>& b)
+    template <typename T>
+    static bool equal(vector<vector<T>>& a, vector<vector<T>>& b)
     {
         for (auto&& n : a) {
             sort(n.begin(), n.end());
@@ -42,7 +44,8 @@ public:
      * 对二级vector不做排序，比较是否相等
      * 用于比较生成的序列(premutations)
      */
-    static bool same(vector<vector<int>>& a, vector<vector<int>>& b)
+    template <typename T>
+    static bool same(vector<vector<T>>& a, vector<vector<T>>& b)
     {
         if (a.size() != b.size()) {
             return false;
