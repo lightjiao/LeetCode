@@ -14,13 +14,17 @@ using namespace std;
 class VV
 {
 public:
-    template <typename T> static void print(vector<vector<T>>& a)
+    template <typename T>
+    static void print(vector<vector<T>>& a)
     {
         for (auto&& n : a) {
-            for (auto&& m : n) {
-                cout << setw(6) << m;
+            cout << " [ ";
+            for (int i = 0; i < n.size(); i++) {
+                cout << setw(6) << n[i];
+                if (i != n.size() - 1) { cout << ", "; }
             }
-            cout << endl;
+
+            cout << " ] " << endl;
         }
     }
 
@@ -47,9 +51,7 @@ public:
     template <typename T>
     static bool same(vector<vector<T>>& a, vector<vector<T>>& b)
     {
-        if (a.size() != b.size()) {
-            return false;
-        }
+        if (a.size() != b.size()) { return false; }
 
         for (auto&& m : a) {
             bool equalFlag = false;
@@ -59,9 +61,7 @@ public:
                     break;
                 }
             }
-            if (equalFlag == false) {
-                return false;
-            }
+            if (equalFlag == false) { return false; }
         }
 
         for (auto&& m : b) {
@@ -72,9 +72,7 @@ public:
                     break;
                 }
             }
-            if (equalFlag == false) {
-                return false;
-            }
+            if (equalFlag == false) { return false; }
         }
 
         return true;
