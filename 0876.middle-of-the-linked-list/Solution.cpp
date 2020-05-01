@@ -42,13 +42,16 @@ public:
         ListNode* slow  = head;
 
         bool slowMove = false;
-        while (quick != NULL) {
+        while (quick != NULL)
+        {
             quick = quick->next;
-            if (slowMove) {
+            if (slowMove)
+            {
                 slow     = slow->next;
                 slowMove = false;
             }
-            else {
+            else
+            {
                 slowMove = true;
             }
         }
@@ -59,10 +62,9 @@ public:
 
 void test(vector<int> list, vector<int> expect)
 {
-    ListNode* pl1    = buildList(list);
-    ListNode* result = (Solution()).middleNode(pl1);
+    ListNode* head = (Solution()).middleNode(ListNode::Create(list));
 
-    REQUIRE(parseList(result) == expect);
+    REQUIRE(ListNode::ToVector(head) == expect);
 }
 
 TEST_CASE("test")

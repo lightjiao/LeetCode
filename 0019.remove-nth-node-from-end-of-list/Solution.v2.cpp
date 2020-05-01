@@ -17,6 +17,7 @@
 
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do
                            // this in one cpp file
+#include "../ListNode.cpp"
 #include "../catch.hpp"
 
 #include "limits.h"
@@ -27,16 +28,6 @@
 #include <vector>
 
 using namespace std;
-
-/**
- * Definition for singly-linked list.
- */
-struct ListNode
-{
-    int       val;
-    ListNode* next;
-    ListNode(int x) : val(x), next(NULL) {}
-};
 
 class Solution
 {
@@ -53,16 +44,20 @@ public:
 
         ListNode *quickPoint = dummy, *slowPoint = dummy;
 
-        while (true) {
-            if (quickPoint->next == NULL) {
+        while (true)
+        {
+            if (quickPoint->next == NULL)
+            {
                 break;
             }
 
             quickPoint = quickPoint->next;
-            if (n == 0) {
+            if (n == 0)
+            {
                 slowPoint = slowPoint->next;
             }
-            else {
+            else
+            {
                 n--;
             }
         }
@@ -75,47 +70,11 @@ public:
     }
 };
 
-void test(vector<int> list, int n, vector<int> expect);
-
 TEST_CASE("test")
 {
-    test({1, 2, 3, 4, 5}, 2, {1, 2, 3, 5});
-}
-
-ListNode* buildList(vector<int> list)
-{
-    ListNode* head = NULL;
-
-    ListNode* preNode = NULL;
-    for (int i = 0; i < list.size(); i++) {
-        // ListNode node(list[i]);
-        ListNode* node = new ListNode(list[i]);
-        node->next     = NULL;
-        if (i == 0) {
-            head = node;
-        }
-        if (i > 0) {
-            preNode->next = node;
-        }
-
-        preNode = node;
-    }
-
-    return head;
-}
-
-void test(vector<int> list, int n, vector<int> expect)
-{
-    Solution s;
-
+    Solution  s;
     ListNode* head;
-    head = buildList(list);
-    head = s.removeNthFromEnd(head, n);
 
-    vector<int> result;
-    while (head != NULL) {
-        result.push_back(head->val);
-        head = head->next;
-    }
-    REQUIRE(result == expect);
+    head = s.removeNthFromEnd(ListNode::Create({1, 2, 3, 4, 5}), 2);
+    REQUIRE(ListNode::ToVector(head) == vector<int>{1, 2, 3, 5});
 }
