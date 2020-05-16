@@ -21,6 +21,11 @@ struct ListNode
         return ToVector(l1) == ToVector(l2);
     }
 
+    static bool Equal(ListNode* l1, vector<int>& v2)
+    {
+        return ToVector(l1) == v2;
+    }
+
     static ListNode* Create(vector<int> list)
     {
         ListNode* head = NULL;
